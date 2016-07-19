@@ -21,7 +21,7 @@ var Person = function() {
 
 var PersonList = function() {
     var people = [];
-    for (var i=0; i < 1; i++) {
+    for (var i=0; i < 5; i++) {
         people.push(<Person />);
     }
     return (
