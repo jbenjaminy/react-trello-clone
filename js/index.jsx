@@ -5,9 +5,7 @@ var ReactDOM = require('react-dom');
 
 var Card = function(cardProps) {
     return (
-        <div className="card">
-            {cardProps.text}
-        </div>
+            <li>{cardProps.text}</li>
     );
 };
 
@@ -15,7 +13,7 @@ var List = function(listProps) {
     return (
       <section className="list">
         <header>{listProps.title}</header>
-        {listProps.cards}
+        <ul className="list-UL">{listProps.cards}</ul>
       </section>
     );
   };
