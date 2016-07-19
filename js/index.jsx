@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-/*----- COMPONENT -----*/
+    // COMPONENT
 var Person = function() {
     // Variables
     var name = 'Derek Zoolander';
@@ -19,8 +19,20 @@ var Person = function() {
     );
 };
 
+var PersonList = function() {
+    var people = [];
+    for (var i=0; i < 1; i++) {
+        people.push(<Person />);
+    }
+    return (
+        <div className="person-list">
+            {people}
+        </div>
+    );
+};
+
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     // Call the ReactDOM.render function (root component, which you want to render; place you want to render it)
-    ReactDOM.render(<Person />, document.getElementById('app'));
+    ReactDOM.render(<PersonList />, document.getElementById('app'));
 });

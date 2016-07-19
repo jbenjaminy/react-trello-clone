@@ -49,7 +49,7 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(33);
 	
-	/*----- COMPONENT -----*/
+	// COMPONENT
 	var Person = function Person() {
 	    // Variables
 	    var name = 'Derek Zoolander';
@@ -73,10 +73,22 @@
 	    );
 	};
 	
+	var PersonList = function PersonList() {
+	    var people = [];
+	    for (var i = 0; i < 1; i++) {
+	        people.push(React.createElement(Person, null));
+	    }
+	    return React.createElement(
+	        'div',
+	        { className: 'person-list' },
+	        people
+	    );
+	};
+	
 	// Wait for DOM to load
 	document.addEventListener('DOMContentLoaded', function () {
 	    // Call the ReactDOM.render function (root component, which you want to render; place you want to render it)
-	    ReactDOM.render(React.createElement(Person, null), document.getElementById('app'));
+	    ReactDOM.render(React.createElement(PersonList, null), document.getElementById('app'));
 	});
 
 /***/ },
