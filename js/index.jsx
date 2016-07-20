@@ -1,8 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-// COMPONENT
-
+// COMPONENTS
 var Card = function(cardProps) {
     return (
             <li>{cardProps.text}</li>
@@ -11,10 +10,16 @@ var Card = function(cardProps) {
 
 var List = function(listProps) {
     return (
-      <section className="list">
-        <header>{listProps.title}</header>
-        <ul className="list-UL">{listProps.cards}</ul>
-      </section>
+      <div className="list-element">
+        <section className="list">
+          <header>{listProps.title}</header>
+          <ul className="list-UL">{listProps.cards}</ul>
+        </section>
+        <form>
+            <input type="text" name="add-text" class="add-text" placeholder="New Card"/><br />
+            <input type="submit" class="add-button" value="Add" />
+        </form> 
+      </div>
     );
   };
 
