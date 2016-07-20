@@ -72,19 +72,48 @@ var Board = React.createClass ({
 // RENDER BOARD
   render: function() {
     // VARIABLES
-    var cards2 = [<Card text="Laundry" />];
+    var cards1 = [
+      < Card text = "Return shoes" />,
+      < Card text = "Call Mom" />,
+      < Card text = "Book flight" />,
+      < Card text = "Pick up dry cleaning"/>
+    ];
+
+    var list1 = <ListContainer 
+      title="To-do" 
+      key="list1"
+      cards={cards1} 
+    />;
+
+    var cards2 = [
+      <Card text="Laundry" />
+    ];
 
     var list2 = <ListContainer
-    title={this.props.lists[0]}
-    key="list2"
-    cards={cards2}
+      title={this.props.lists[0]}
+      key="list2"
+      cards={cards2}
+    />;
+
+    var cards3 = [ 
+      < Card text = "Go to the bank" />, 
+      < Card text = "Get a haircut" />, 
+      < Card text = "Schedule a band practice" />, 
+      < Card text = "Fix bathroom cabinet" />
+    ];
+
+    var list3 = 
+    <ListContainer
+      title="Done" 
+      key="list3"
+      cards={cards3} 
     />;
 
     // RENDERING
     return (
         <section className="board">
-                    <header>{this.props.title}</header>
-                    {list2}
+          <header>{this.props.title}</header>
+          {[list1, list2, list3]}
         </section>
     );
   }
@@ -98,8 +127,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
         <Board title="Things to Get Done" lists={["Doing"]}/>, document.getElementById('app'));
 });
 
-// var list1 = <List title="To-do" cards={[ < Card text = "Return shoes" />, < Card text = "Call Mom" />, < Card text = "Book flight" />, < Card text = "Pick up dry cleaning" />
-// ]} input={< input type = "text" name = "add-text" className = "add-text" placeholder = "New Card" value = "" />} button={< input type = "submit" className = "add-button" value = "Add" />}/>
 
-// var list3 = <List title="Done" cards={[ < Card text = "Go to the bank" />, < Card text = "Get a haircut" />, < Card text = "Schedule a band practice" />, < Card text = "Fix bathroom cabinet" />
-// ]} input={< input type = "text" name = "add-text" className = "add-text" placeholder = "New Card" value = "" />} button={< input type = "submit" className = "add-button" value = "Add" />}/>
+
+
