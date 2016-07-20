@@ -2,6 +2,14 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 // COMPONENTS
+var Input = function(inputProps) {
+  return <input onChange={inputProps.onChange} />;
+};
+
+var Button = function(buttonProps) {
+  return <input onClick={buttonProps.onClick} />;
+};
+
 var Card = function(cardProps) {
     return (
             <li>{cardProps.text}</li>
@@ -9,6 +17,24 @@ var Card = function(cardProps) {
 };
 
 var List = function(listProps) {
+  getInitialState: function() {
+    return {clicked: false} {input: null};
+  },
+
+  onAddInputChanged: function() {
+    this.setState({
+      input: find(listProps.input.val());
+    });
+  },
+
+  onAddClick: function() {
+    this.setState({
+      clicked: true
+    });
+  },
+
+  // render new card
+
     return (
       <div className="list-element">
         <section className="list">
@@ -16,8 +42,9 @@ var List = function(listProps) {
           <ul className="list-UL">{listProps.cards}</ul>
         </section>
         <form>
-            <input type="text" name="add-text" class="add-text" placeholder="New Card"/><br />
-            <input type="submit" class="add-button" value="Add" />
+            {listProps.input}
+            <br />
+            {listProps.button}
         </form> 
       </div>
     );
@@ -35,11 +62,11 @@ var Board = function(boardProps) {
 var App = function() {
 
 var list1 = <List title="To-do"
-cards={[<Card text="Return shoes" />,<Card text="Call Mom" />,<Card text="Book flight" />,<Card text="Pick up dry cleaning" />]} />;
+cards={[<Card text="Return shoes" />,<Card text="Call Mom" />,<Card text="Book flight" />,<Card text="Pick up dry cleaning" />]} input={<input type="text" name="add-text" class="add-text" placeholder="New Card" value=null/>} button={<input type="submit" class="add-button" value="Add"/>}/>
 
-var list2 = <List title="Doing" cards={[<Card text="Laundry" />]} />
+var list2 = <List title="Doing" cards={[<Card text="Laundry" />]} input={<input type="text" name="add-text" class="add-text" placeholder="New Card" value=null/>} button={<input type="submit" class="add-button" value="Add"/>} />
 
-var list3 = <List title="Done" cards={[<Card text="Go to the bank" />,<Card text="Get a haircut" />,<Card text="Schedule a band practice" />,<Card text="Fix bathroom cabinet" />]} />
+var list3 = <List title="Done" cards={[<Card text="Go to the bank" />,<Card text="Get a haircut" />,<Card text="Schedule a band practice" />,<Card text="Fix bathroom cabinet" />]} input={<input type="text" name="add-text" class="add-text" placeholder="New Card" value=null/>} button={<input type="submit" class="add-button" value="Add"/>}/>
 
   return (
     <section className="app">
