@@ -7,7 +7,7 @@ var ReactDOM = require('react-dom');
 // INPUT BOX AND BUTTON
 var Input = function(inputProps) {
     return (
-      <input type="text" name="add-text" className="add-text" placeholder="New Card" onChange={inputProps.onChange}/>
+      <input type="text" name="add-text" className="add-text" value={inputProps.value}placeholder="New Card" onChange={inputProps.onChange}/>
     );
 };
 
@@ -29,12 +29,11 @@ var ListContainer = React.createClass({
 
   // SET INITIAL STATE
     getInitialState: function() {
-        return {value: "", clicked: false, cards: this.props.cards};
+        return {value: "", cards: this.props.cards};
     },
 
     // CALLBACKS TO CHANGE STATE
     onAddInputChanged: function(event) {
-        console.log(event.target.value, '<-- input state change');
         this.setState({
             value: event.target.value});
     },
@@ -43,13 +42,10 @@ var ListContainer = React.createClass({
         event.preventDefault();
         var cardsArr = this.state.cards.slice();
         cardsArr.push(<Card text={this.state.value} />);
-        this.setState({value: "", clicked: true, cards: cardsArr});
-        console.log(this.state, '<-- click state change');
-  
+        this.setState({value: "", cards: cardsArr});
     },
     // RENDER LIST
     render: function() {
-      console.log(this.state, '<-- this.state')
       return (
         <div className="list-element">
             <section className="list">
@@ -57,7 +53,7 @@ var ListContainer = React.createClass({
                 <ul className="list-UL">{this.state.cards}</ul>
             </section>
             <form>
-                <Input onChange={this.onAddInputChanged} />
+                <Input value={this.state.value} onChange={this.onAddInputChanged}/>
                 <br/>
                 <Button onClick={this.onAddClick} />
             </form>
@@ -73,14 +69,14 @@ var Board = React.createClass ({
   render: function() {
     // VARIABLES
     var cards1 = [
-      < Card text = "Return shoes" />,
-      < Card text = "Call Mom" />,
-      < Card text = "Book flight" />,
-      < Card text = "Pick up dry cleaning"/>
+      <Card text = "Return shoes" />,
+      <Card text = "Call Mom" />,
+      <Card text = "Book flight" />,
+      <Card text = "Pick up dry cleaning"/>
     ];
 
     var list1 = <ListContainer 
-      title="To-do" 
+      title={this.props.lists[0]} 
       key="list1"
       cards={cards1} 
     />;
@@ -90,21 +86,21 @@ var Board = React.createClass ({
     ];
 
     var list2 = <ListContainer
-      title={this.props.lists[0]}
+      title={this.props.lists[1]}
       key="list2"
       cards={cards2}
     />;
 
     var cards3 = [ 
-      < Card text = "Go to the bank" />, 
-      < Card text = "Get a haircut" />, 
-      < Card text = "Schedule a band practice" />, 
-      < Card text = "Fix bathroom cabinet" />
+      <Card text = "Go to the bank" />, 
+      <Card text = "Get a haircut" />, 
+      <Card text = "Schedule a band practice" />, 
+      <Card text = "Fix bathroom cabinet" />
     ];
 
     var list3 = 
     <ListContainer
-      title="Done" 
+      title={this.props.lists[2]}
       key="list3"
       cards={cards3} 
     />;
@@ -124,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   event.preventDefault();
     // Call the ReactDOM.render function (root component, which you want to render; place you want to render it)
     ReactDOM.render(
-        <Board title="Things to Get Done" lists={["Doing"]}/>, document.getElementById('app'));
+        <Board title="Things to Get Done" lists={["To Do", "Doing", "Done"]}/>, document.getElementById('app'));
 });
 
 
