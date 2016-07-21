@@ -1,0 +1,39 @@
+"react-trello" is a single page application for task/project management developed using the React JavaScript library. While the library, framework, and design choices are usually invisible to the end-user, under the hood, this application is made up of various modular components that communicate with each other, are customizable, reusable, and therefore more maintainable. What does matter to the end-user is that React-driven applications (e.g., react-trello) run very fast.
+
+To launch the application, make sure all application dependencies are installed, run the build system, and start the server. Once the application is running on the server, you can access react-trello at the URL or the host running the application.
+
+From the command line, issue the following commands:
+
+1. $ npm install
+2. $ npm run build
+3. $ npm run serve
+
+By default, the application is listening on port 8080 on the local host.
+
+Access the application at http://localhost:8080
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+Built July 2016, Thinkful project by
+
+young.benjamin@gmail.com
+alexbang@hotmail.comp
+
+Copyright (c) <2016> <Benjamin Young and Alex Bang>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
